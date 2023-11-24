@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defautHref="/dados-ensino"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Adicionar disciplina</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+      <form [formGroup]="formGroup" (ngSubmit)="salvar()">
+
+        <ion-row class="input-item">
+          <ion-col>
+            <div class="form-group">
+              <label for="idDisciplina">Disciplina</label>
+              <select id="idDisciplina" class="form-control" formControlName="idDisciplina">
+                <option *ngFor="let disciplina of disciplinas" [value]="disciplina.idDisciplina">{{ disciplina.nome }}</option>
+              </select>
+            </div>
+          </ion-col>
+        </ion-row>  
+
+        <ion-row class="input-item">
+          <ion-col>
+            <ion-button type="submit" expand="full" color="success" [disabled]="!formGroup.valid">Salvar</ion-button>
+          </ion-col>
+        </ion-row>
+      
+      </form>
+  </div>
+  
+</ion-content>

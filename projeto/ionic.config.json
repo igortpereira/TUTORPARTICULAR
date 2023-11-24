@@ -1,0 +1,7 @@
+{
+  "name": "TUTORPARTICULAR",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,27 @@
+ion-toolbar {
+    --background: #0000CD;
+    color: white;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30%;
+}
+
+.logo{
+    max-width: 250px;
+    max-height: 250px;
+    margin: 0 auto;
+}
+
+p{
+  text-align: center;
+}
+
+/* Media query para telas maiores (por exemplo, telas com largura maior que 768px) */
+@media screen and (min-width: 769px) {
+  .image-container{
+    margin-top: 5%;
+  }
+}

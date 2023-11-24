@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defautHref="/formato-aula"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Formato de aula</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+      <form [formGroup]="formGroup" (ngSubmit)="salvar()">
+
+        <ion-row class="input-item">
+          <ion-col>
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" class="form-control" id="nome" formControlName="nome">
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="input-item">
+          <ion-col>
+            <div class="form-group">
+              <label for="descricao">Descrição</label>
+              <textarea class="form-control" id="descricao" rows="3" formControlName="descricao"></textarea>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="input-item">
+          <ion-col>
+            <ion-button type="submit" expand="full" color="success" [disabled]="!formGroup.valid">Salvar</ion-button>
+          </ion-col>
+        </ion-row>
+      
+      </form>
+  </div>
+  
+</ion-content>

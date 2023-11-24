@@ -1,0 +1,45 @@
+ion-toolbar {
+    --background: #0000CD;
+    color: white;
+  }
+    
+.dados{
+    background-color: #7474e2;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.nome{
+    text-align: center;
+    font-size: 25px;
+}
+
+ion-item{
+    --background: #7474e2;
+}
+
+ion-icon{
+    height: 20px;
+    width: 20px;
+}
+
+.subtitulo{
+    text-align: center;
+    font-size: 22px;
+    margin-top: 5px;
+}
+
+    .horizontal-line {
+    border-top: 1px solid #000; /* Define uma linha sólida de 1 pixel de espessura e cor preta */
+    height: 0; /* Define a altura como 0 para criar uma linha horizontal */
+    }
+
+    ion-list{
+        --background: #7474e2;
+        margin-bottom: 20px;
+    }
+
+    .numAlunos{
+        text-align: center;
+        margin-top: 20px;
+    }

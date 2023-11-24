@@ -1,0 +1,185 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defautHref="/inicio-professor"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Meus dados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <form [formGroup]="formGroup" (ngSubmit)="salvar()">
+
+      <ion-row class="input-item">
+        <ion-col>
+          <p><strong>Dados do professor</strong></p>
+          <div class="horizontal-line"></div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-item">
+        <ion-col>
+          <div class="form-group ">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" formControlName="nome">
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-item">
+        <ion-col size="6">
+          <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control" id="cpf" formControlName="cpf" mask="000.000.000-00">
+          </div>
+        </ion-col>
+  
+        <ion-col size="6">
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="text" class="form-control" id="telefone" formControlName="telefone" mask="(00) 00000-0000">
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-item">
+        <ion-col>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-item">
+        <ion-col>
+          <div class="form-group">
+            <label for="senha">Senha</label>
+            <div class="password-input-container">
+              <input [type]="senhaVisivel ? 'text' : 'password'" class="form-control" id="senha" formControlName="senha">
+              <ion-icon name="eye" slot="end" (click)="togglePassword()"></ion-icon>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-item">
+        <ion-col>
+          <p><strong>Dados de endereço</strong></p>
+          <div class="horizontal-line"></div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-item">
+        <ion-col size="7">
+          <div class="form-group">
+            <label for="uf">UF</label>
+            <select id="uf" class="form-control" formControlName="uf">
+              <option value="AC">Acre (AC)</option>
+              <option value="AL">Alagoas (AL)</option>
+              <option value="AP">Amapá (AP)</option>
+              <option value="AM">Amazonas (AM)</option>
+              <option value="BA">Bahia (BA)</option>
+              <option value="CE">Ceará (CE)</option>
+              <option value="DF">Distrito Federal (DF)</option>
+              <option value="ES">Espírito Santo (ES)</option>
+              <option value="GO">Goiás (GO)</option>
+              <option value="MA">Maranhão (MA)</option>
+              <option value="MT">Mato Grosso (MT)</option>
+              <option value="MS">Mato Grosso do S. (MS)</option>
+              <option value="MG">Minas Gerais (MG)</option>
+              <option value="PA">Pará (PA)</option>
+              <option value="PB">Paraíba (PB)</option>
+              <option value="PR">Paraná (PR)</option>
+              <option value="PE">Pernambuco (PE)</option>
+              <option value="PI">Piauí (PI)</option>
+              <option value="RJ">Rio de Janeiro (RJ)</option>
+              <option value="RN">Rio Grande do N. (RN)</option>
+              <option value="RS">Rio Grande do S. (RS)</option>
+              <option value="RO">Rondônia (RO)</option>
+              <option value="RR">Roraima (RR)</option>
+              <option value="SC">Santa Catarina (SC)</option>
+              <option value="SP">São Paulo (SP)</option>
+              <option value="SE">Sergipe (SE)</option>
+              <option value="TO">Tocantins (TO)</option>
+            </select>
+          </div>
+        </ion-col>
+  
+        <ion-col size="5">
+          <div class="form-group">
+            <label for="cep">CEP</label>
+            <input type="text" class="form-control" id="cep" formControlName="cep" mask="00000-000">
+          </div>
+        </ion-col>
+      </ion-row>  
+      
+      <ion-row class="input-item">
+        <ion-col>
+          <div class="form-group">
+            <label for="cidade">Cidade</label>
+            <input type="text" class="form-control" id="cidade" formControlName="cidade">
+          </div>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row class="input-item">
+        <ion-col>
+          <div class="form-group">
+            <label for="bairro">Bairro</label>
+            <input type="text" class="form-control" id="bairro" formControlName="bairro">
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-item">
+        <ion-col size="9">
+          <div class="form-group">
+            <label for="rua">Rua</label>
+            <input type="text" class="form-control" id="rua" formControlName="rua">
+          </div>
+        </ion-col>
+  
+        <ion-col size="3">
+          <div class="form-group">
+            <label for="numero">Número</label>
+            <input type="number" class="form-control" id="numero" min="1" formControlName="numero">
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-item">
+        <ion-col>
+          <p><strong>Dados profissionais</strong></p>
+          <div class="horizontal-line"></div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-item">
+        <ion-col>
+          <div class="form-group">
+            <label for="numMaxAlunos">Número máximo de alunos por aula</label>
+            <input type="number" class="form-control" id="numMaxAlunos" formControlName="numMaxAlunos">
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-item">
+        <ion-col>
+          <div class="form-group">
+            <label for="apresentacao">Apresentacao</label>
+            <textarea class="form-control" id="apresentacao" rows="3" formControlName="apresentacao"></textarea>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-item">
+        <ion-col>
+          <ion-button type="submit" expand="full" color="success" [disabled]="!formGroup.valid">Salvar</ion-button>
+        </ion-col>
+      </ion-row>
+      
+    </form>
+  </div>
+</ion-content>

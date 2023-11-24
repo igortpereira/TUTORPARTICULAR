@@ -1,0 +1,25 @@
+
+
+<ion-content>
+  <div class="ion-padding">
+      
+      <form [formGroup]="formGroup" (ngSubmit)="autenticar()">
+        <img src="assets\tutorParticular.png" alt="logo" class="logo">
+
+        <div class="form-group input-item">
+          <label for="email">E-mail</label>
+          <input type="email" class="form-control" id="email" formControlName="email">
+        </div>
+
+        <div class="form-group input-item">
+          <label for="senha">Senha</label>
+          <input type="password" class="form-control" id="senha" formControlName="senha">
+        </div>
+        
+        <ion-button type="submit" expand="full" color="success" class="entrar-button">Entrar</ion-button>
+
+        <p class="cadastrar-text">Não tem conta? <a routerLink="/tipo-cadastro">Cadastrar</a></p>
+      </form>
+      
+  </div>
+</ion-content>

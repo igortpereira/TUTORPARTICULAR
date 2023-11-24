@@ -1,0 +1,60 @@
+#GET
+GET http://localhost:8087/api/tutorParticular/aluno/
+Content-Type: application/json
+###
+
+#GET
+GET http://localhost:8087/api/tutorParticular/aluno/2
+Content-Type: application/json
+###
+
+#POST
+POST http://localhost:8087/api/tutorParticular/aluno/
+Content-Type: application/json
+
+{
+    "nome": "Igor",
+    "cpf": "111.111.111-11",
+    "email": "igor@igor",
+    "senha": "123",
+    "telefone": "(11) 11111-1111",
+    "uf": "MG",
+    "cep": "12345-678",
+    "cidade": "Cidade do Aluno",
+    "bairro": "Bairro do Aluno",
+    "rua": "Rua do Aluno",
+    "numero": 123,
+    "foto": "foto.png"
+}
+###
+
+#PUT
+PUT http://localhost:8087/api/tutorParticular/aluno/
+Content-Type: application/json
+
+{
+    "idAluno": 1,
+    "nome": "Maria Joana",
+    "cpf": "222.222.222-22",
+    "email": "maria@maria",
+    "senha": "12345",
+    "telefone": "(22) 22222-2222",
+    "uf": "MG",
+    "cep": "22222-222",
+    "cidade": "Cidade da Joana",
+    "bairro": "Bairro da Joana",
+    "rua": "Rua da Joana",
+    "numero": 222,
+    "foto": null
+}
+###
+
+#DELETE
+DELETE http://localhost:8087/api/tutorParticular/aluno/2
+Content-Type: application/json
+###
+
+#GET
+GET http://localhost:8087/api/tutorParticular/aluno/maria/1234/autenticar
+Content-Type: application/json
+###

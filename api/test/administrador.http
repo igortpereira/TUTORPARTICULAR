@@ -1,0 +1,42 @@
+#GET
+GET http://localhost:8087/api/tutorParticular/administrador/
+Content-Type: application/json
+###
+
+#GET
+GET http://localhost:8087/api/tutorParticular/administrador/3
+Content-Type: application/json
+###
+
+#POST
+POST http://localhost:8087/api/tutorParticular/administrador/
+Content-Type: application/json
+
+{
+    "nome": "Maria",
+    "email": "teste",
+    "senha": "123" 
+}
+###
+
+#PUT
+PUT http://localhost:8087/api/tutorParticular/administrador/
+Content-Type: application/json
+
+{
+    "idAdministrador": 1,
+    "nome": "Maria Paula",
+    "email": "admin@admin",
+    "senha": "123"
+}
+###
+
+#DELETE
+DELETE http://localhost:8087/api/tutorParticular/administrador/10
+Content-Type: application/json
+###
+
+#GET
+GET http://localhost:8087/api/tutorParticular/administrador/admin1@gmail.com/123/autenticar
+Content-Type: application/json
+###

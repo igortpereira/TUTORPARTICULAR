@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defautHref="/pesquisar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Perfil do professor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <div class="dados">
+      
+      <p class="nome"><strong>{{professor.nome}}</strong></p>
+      
+      <ion-item>
+        <ion-icon name="mail" slot="start"></ion-icon>
+        <ion-label>{{ professor.email }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="call" slot="start"></ion-icon>
+        <ion-label>{{ professor.telefone }}</ion-label>
+      </ion-item>
+
+      <div class="horizontal-line"></div>
+
+      <p class="subtitulo">Disciplinas</p>
+
+      <ion-list>
+        <ion-item-sliding *ngFor="let disciplina of disciplinas">
+          <ion-item>
+            <ion-label>
+              <h2> {{disciplina.nome}} </h2>
+            </ion-label>
+          </ion-item>
+        </ion-item-sliding>
+      </ion-list>
+
+      <div class="horizontal-line"></div>
+
+      <p class="numAlunos">Até {{professor.numMaxAlunos}} alunos por aula</p>
+
+      <div class="horizontal-line"></div>
+
+      <p class="subtitulo">Apresentação</p>
+
+      <p class="numAlunos">{{professor.apresentacao}}</p>
+
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,54 @@
+ion-content{
+  --background: #0000CD;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    height: 90vh;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+  
+    .logo {
+      width: 180px;
+      height: 180px;
+      margin-bottom: 20px;
+    }
+  
+    .input-item {
+      margin-bottom: 10px;
+      width: 90%;
+      font-size: 14px;
+    }
+
+    .entrar-button {
+      margin-top: 20px;
+      border-radius: 10px;
+      width: 90%;
+    }
+  
+    .cadastrar-text {
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    a{
+      text-decoration: none;
+    }
+
+    a:hover{
+      text-decoration: underline;
+    }
+  }  
+
+/* Media query para telas maiores (por exemplo, telas com largura maior que 768px) */
+@media screen and (min-width: 769px) {
+  form{
+    margin-top: 1%;
+  }
+}

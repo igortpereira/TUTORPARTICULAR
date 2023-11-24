@@ -1,0 +1,18 @@
+ion-toolbar {
+    --background: #0000CD;
+    color: white;
+  }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      
+        .input-item {
+          margin-bottom: 10px;
+          width: 90%;
+          font-size: 14px;
+        }
+      } 

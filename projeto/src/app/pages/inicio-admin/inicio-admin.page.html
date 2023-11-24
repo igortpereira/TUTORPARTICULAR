@@ -1,0 +1,51 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{ administrador?.nome }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+      <ion-item class="links" *ngFor="let page of appPages" [routerLink]="[page.url]" detail>
+        <ion-icon slot="start" [md]="page.icon" slot="start" [color]="page.color"></ion-icon>
+        <ion-label>{{ page.title }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div id="main-content">
+  <ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button auto-hide="false"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Bem-vindo, administrador</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</div>
+
+<ion-content>
+  <div class="ion-padding">
+    <div class="acoes">
+      <img src="assets\disciplinas.png" alt="Disciplinas" [routerLink]="'/disciplina/' + administrador.idAdministrador" class="foto">
+
+      <img src="assets\niveisEnsino.png" alt="Níveis de Ensino" [routerLink]="'/nivel-ensino/' + administrador.idAdministrador" class="foto">
+    
+      <img src="assets\formatosAula.png" alt="Formatos de aula" [routerLink]="'/formato-aula/' + administrador.idAdministrador" class="foto">
+    </div>
+  </div>
+  <!--
+  <div class="acoes">
+    <div class="disciplina">
+      <p [routerLink]="'/disciplina/' + administrador.idAdministrador">Disciplinas</p>
+    </div>
+    <div class="nivelEnsino">
+      <p [routerLink]="'/nivel-ensino/' + administrador.idAdministrador">Níveis de ensino</p>
+    </div>
+    <div class="formatoAula">
+      <p [routerLink]="'/formato-aula/' + administrador.idAdministrador">Formatos de aula</p>
+    </div>
+  </div>
+  -->
+</ion-content>

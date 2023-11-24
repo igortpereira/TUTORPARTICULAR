@@ -1,0 +1,42 @@
+#GET
+GET http://localhost:8087/api/tutorParticular/disciplina/
+Content-Type: application/json
+###
+
+#GET
+GET http://localhost:8087/api/tutorParticular/disciplina/2
+Content-Type: application/json
+###
+
+#GET
+GET http://localhost:8087/api/tutorParticular/disciplina/professor/1
+Content-Type: application/json
+###
+
+#POST
+POST http://localhost:8087/api/tutorParticular/disciplina/
+Content-Type: application/json
+
+{
+    "nome": "Matemática II",
+    "descricao": "Matemática experimental",
+    "idAdministrador": 1 
+}
+###
+
+#PUT
+PUT http://localhost:8087/api/tutorParticular/disciplina/
+Content-Type: application/json
+
+{
+    "idDisciplina": 1,
+    "nome": "Matemática I",
+    "descricao": "Matemática experimental",
+    "idAdministrador": 1
+}
+###
+
+#DELETE
+DELETE http://localhost:8087/api/tutorParticular/disciplina/3
+Content-Type: application/json
+###

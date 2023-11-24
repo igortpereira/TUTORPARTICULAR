@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defautHref="/inicio-admin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Meus dados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <form [formGroup]="formGroup" (ngSubmit)="salvar()">
+
+      <ion-row class="input-item">
+        <ion-col>
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" formControlName="nome">
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-item">
+        <ion-col>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-item">
+        <ion-col>
+          <div class="form-group">
+            <label for="senha">Senha</label>
+            <div class="password-input-container">
+              <input [type]="senhaVisivel ? 'text' : 'password'" class="form-control" id="senha" formControlName="senha">
+              <ion-icon name="eye" slot="end" (click)="togglePassword()"></ion-icon>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="input-item">
+        <ion-col>
+          <ion-button type="submit" expand="full" color="success" [disabled]="!formGroup.valid">Salvar</ion-button>
+        </ion-col>
+      </ion-row>
+      
+    </form>
+  </div>
+</ion-content>

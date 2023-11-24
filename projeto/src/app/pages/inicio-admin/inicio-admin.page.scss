@@ -1,0 +1,44 @@
+ion-toolbar {
+  --background: #0000CD;
+  color: white;
+}
+
+
+.acoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .foto {
+    width: 220px;
+    height: 150px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+
+  /* Media query para telas maiores (por exemplo, telas com largura maior que 768px) */
+@media screen and (min-width: 769px) {
+  .foto {
+    width: 200px;
+    height: 120px;
+  }
+}
+  
+  /*
+  .acoes > div {
+    background-color: rgb(124, 209, 124);
+    width: 40%; 
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    border-radius: 10px;
+  }*/
+
+  
+
+  
+  

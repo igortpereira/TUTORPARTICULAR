@@ -1,0 +1,47 @@
+#GET
+GET http://localhost:8087/api/v1/endereco/
+Content-Type: application/json
+###
+
+#GET
+GET http://localhost:8087/api/v1/endereco/2
+Content-Type: application/json
+###
+
+#POST
+POST http://localhost:8087/api/v1/endereco/
+Content-Type: application/json
+
+{
+    "uf": "MG",
+    "cep": "11111-111",
+    "cidade": "Belo",
+    "bairro": "Trevo",
+    "rua": "Caravelas",
+    "numero": 115,
+    "idAluno": 1,
+    "idProfessor": 1 
+}
+###
+
+#PUT
+PUT http://localhost:8087/api/v1/endereco/
+Content-Type: application/json
+
+{
+    "idEndereco": 4,
+    "uf": "SP",
+    "cep": "11111-111",
+    "cidade": "Belo",
+    "bairro": "Trevo",
+    "rua": "Caravelas",
+    "numero": 115,
+    "idAluno": 1,
+    "idProfessor": 1 
+}
+###
+
+#DELETE
+DELETE http://localhost:8087/api/v1/endereco/1
+Content-Type: application/json
+###

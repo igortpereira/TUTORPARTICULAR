@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defautHref="/login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <div class="cadastro-container">
+      <div class="tipo-botao-container">
+        <p class="descricao"><strong>Qual o tipo de conta?</strong></p>
+        <ion-button expand="full" color="primary" routerLink="/add-aluno" class="tipo-botao">Aluno</ion-button>
+        <ion-button expand="full" color="success" routerLink="/add-professor" class="tipo-botao tipo-botao-branco">Professor</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

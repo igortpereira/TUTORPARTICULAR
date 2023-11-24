@@ -1,0 +1,37 @@
+#GET
+GET http://localhost:8087/api/tutorParticular/nivelEnsino/
+Content-Type: application/json
+###
+
+#GET
+GET http://localhost:8087/api/tutorParticular/nivelEnsino/2
+Content-Type: application/json
+###
+
+#POST
+POST http://localhost:8087/api/tutorParticular/nivelEnsino/
+Content-Type: application/json
+
+{
+    "nome": "Ensino II",
+    "descricao": "Básico",
+    "idAdministrador": 1 
+}
+###
+
+#PUT
+PUT http://localhost:8087/api/tutorParticular/nivelEnsino/
+Content-Type: application/json
+
+{
+    "idNivelEnsino": 1,
+    "nome": "Ensino Fundamental I",
+    "descricao": "Fundamental I",
+    "idAdministrador": 1
+}
+###
+
+#DELETE
+DELETE http://localhost:8087/api/tutorParticular/nivelEnsino/2
+Content-Type: application/json
+###

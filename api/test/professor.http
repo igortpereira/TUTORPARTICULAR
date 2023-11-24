@@ -1,0 +1,66 @@
+#GET
+GET http://localhost:8087/api/tutorParticular/professor/
+Content-Type: application/json
+###
+
+#GET
+GET http://localhost:8087/api/tutorParticular/professor/2
+Content-Type: application/json
+###
+
+#POST
+POST http://localhost:8087/api/tutorParticular/professor/
+Content-Type: application/json
+
+{
+    "nome": "Joao",
+    "cpf": "111.111.111-11",
+    "email": "maria@maria",
+    "senha": "123",
+    "telefone": "(11) 11111-1111",
+    "uf": "MG",
+    "cep": "11111-111",
+    "cidade": "Timoteo",
+    "bairro": "Primavera",
+    "rua": "Dracema",
+    "numero": 12,
+    "numMaxAlunos": 5,
+    "apresentacao": "Professor de matemática",
+    "mediaAvaliacao": 0,
+    "foto": "foto.png"
+}
+###
+
+#PUT
+PUT http://localhost:8087/api/tutorParticular/professor/
+Content-Type: application/json
+
+{
+    "idProfessor": 1,
+    "nome": "Maria Joaquina",
+    "cpf": "111.111.111-11",
+    "email": "maria@maria",
+    "senha": "123",
+    "telefone": "(11) 11111-1111",
+    "uf": "MG",
+    "cep": "11111-111",
+    "cidade": "Timoteo",
+    "bairro": "Primavera",
+    "rua": "Dracema",
+    "numero": 12,
+    "numMaxAlunos": 5,
+    "apresentacao": "Professor de matemática",
+    "mediaAvaliacao": 0,
+    "foto": "foto.png"
+}
+###
+
+#DELETE
+DELETE http://localhost:8087/api/tutorParticular/professor/2
+Content-Type: application/json
+###
+
+#GET
+GET http://localhost:8087/api/tutorParticular/professor/teste/123/autenticar
+Content-Type: application/json
+###
