@@ -19,6 +19,11 @@ export class ProfessorDisciplinaService {
     return await this.httpClient.post(this.url, JSON.stringify(professorDisciplina), this.httpHeaders).toPromise();
   }
 
+  async listarPorId(idProfessor: number, idDisciplina: number){
+    let urlAuxiliar = this.url + "/" + idProfessor + "/" + idDisciplina;
+    return await this.httpClient.get(urlAuxiliar).toPromise();
+  }
+
   async excluir(idProfessor: number, idDisciplina: number) {
     let urlAuxiliar = this.url + "/" + idProfessor + "/" + idDisciplina;
     return await this.httpClient.delete(urlAuxiliar).toPromise();

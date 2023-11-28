@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defautHref="/pesquisar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Filtro de pesquisa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+      <form [formGroup]="formGroup" (ngSubmit)="filtrar()">
+
+        <ion-row class="input-item">
+          <ion-col>
+            <div class="form-group ">
+              <label for="quantAlunos">Quantidade de alunos por aula</label>
+              <input type="number" class="form-control" id="quantAlunos" formControlName="quantAlunos" min="1">
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="input-item">
+          <ion-col>
+            <div class="form-group ">
+              <label for="raioDistancia">Raio de distância: 
+                <span *ngIf="formGroup.get('raioDistancia').value >= 1 && formGroup.get('raioDistancia').value <= 14">
+                  até {{ formGroup.get('raioDistancia').value }} km
+                </span>
+                <span *ngIf="formGroup.get('raioDistancia').value === 15">
+                  +15 km
+                </span>
+              </label>
+              <ion-range formControlName="raioDistancia" min="1" max="15" step="1" color="primary">
+                <ion-icon range-left small name="remove" color="danger"></ion-icon>
+                <ion-icon range-right small name="add" color="success"></ion-icon>
+              </ion-range>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="input-item">
+          <ion-col>
+            <div class="form-group">
+              <label for="idDisciplina">Disciplina</label>
+              <select id="idDisciplina" class="form-control" formControlName="idDisciplina">
+                <option *ngFor="let disciplina of disciplinas" [value]="disciplina.idDisciplina">{{ disciplina.nome }}</option>
+              </select>
+            </div>
+          </ion-col>
+        </ion-row>  
+
+        <ion-row class="input-item">
+          <ion-col>
+            <ion-button type="submit" expand="full" color="success">Filtrar</ion-button>
+          </ion-col>
+        </ion-row>
+      
+      </form>
+  </div>
+  
+</ion-content>

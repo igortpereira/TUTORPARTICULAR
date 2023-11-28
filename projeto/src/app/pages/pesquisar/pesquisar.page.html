@@ -4,19 +4,24 @@
       <ion-back-button defautHref="/inicio-aluno"></ion-back-button>
     </ion-buttons>
     <ion-title></ion-title>
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar [(ngModel)]="pesquisa" (input)="pesquisarProfessores()"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/filtro/', idAluno]" style="margin-right: 30px;">
+        <ion-icon name="funnel"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item-sliding *ngFor="let professor of professores">
+    <ion-item-sliding *ngFor="let professor of professoresFiltrados">
       <ion-item [routerLink]="['/perfil-professor/', professor.idProfessor]" detail>
         <ion-label class="flex-container">
           <div class="text-container">
             <h2><strong>{{professor.nome}}</strong></h2>
-            <p>UF: {{professor.uf}}</p>
-            <p>Telefone: {{professor.telefone}}</p>
+            <p>Estado: {{professor.uf}}</p>
+            <p>Cidade: {{professor.cidade}}</p>
           </div>
         </ion-label>
       </ion-item>

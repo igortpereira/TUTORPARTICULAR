@@ -1,0 +1,31 @@
+ion-toolbar {
+    --background: #0000CD;
+    color: white;
+  }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      
+        .input-item {
+          margin-bottom: 10px;
+          width: 90%;
+          font-size: 14px;
+        }
+      } 
+  
+      p{
+        margin-bottom: 0px;
+        font-size: 16px;
+      }
+  
+      .horizontal-line {
+        border-top: 1px solid #000;
+        height: 0; 
+      }
+      
+  
+  

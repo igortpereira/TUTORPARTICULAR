@@ -27,7 +27,7 @@ export class InicioAlunoPage implements OnInit {
 
   public appPages = [
     { title: 'Meus dados', url: '/meus-dados-aluno/' + this.retornarId(), icon: 'person', color: "dark" },
-    { title: 'Pesquisar professor', url: '/pesquisar', icon: 'search', color: "dark" },
+    { title: 'Pesquisar professor', url: '/pesquisar/' + this.retornarId(), icon: 'search', color: "dark" },
     { title: 'Sair', url: '/login', icon: 'exit', color: "danger" }
   ];
 

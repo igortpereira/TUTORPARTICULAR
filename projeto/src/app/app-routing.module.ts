@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/meus-dados-aluno/meus-dados-aluno.module').then( m => m.MeusDadosAlunoPageModule)
   },
   {
-    path: 'pesquisar',
+    path: 'pesquisar/:idAluno',
     loadChildren: () => import('./pages/pesquisar/pesquisar.module').then( m => m.PesquisarPageModule)
   },
   {
@@ -106,6 +106,14 @@ const routes: Routes = [
   {
     path: 'add-formato-aula/:idAdministrador/:idFormatoAula',
     loadChildren: () => import('./pages/add-formato-aula/add-formato-aula.module').then( m => m.AddFormatoAulaPageModule)
+  },
+  {
+    path: 'filtro/:idAluno',
+    loadChildren: () => import('./pages/filtro/filtro.module').then( m => m.FiltroPageModule)
+  },
+  {
+    path: 'add-administrador',
+    loadChildren: () => import('./pages/add-administrador/add-administrador.module').then( m => m.AddAdministradorPageModule)
   },
   {
     path: 'pages',

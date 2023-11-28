@@ -51,6 +51,14 @@ const routes: Routes = [
   {
     path: 'perfil-professor',
     loadChildren: () => import('./perfil-professor/perfil-professor.module').then( m => m.PerfilProfessorPageModule)
+  },
+  {
+    path: 'filtro',
+    loadChildren: () => import('./filtro/filtro.module').then( m => m.FiltroPageModule)
+  },
+  {
+    path: 'add-administrador',
+    loadChildren: () => import('./add-administrador/add-administrador.module').then( m => m.AddAdministradorPageModule)
   }
 ];
 
