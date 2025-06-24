@@ -25,7 +25,7 @@ export class PesquisarPage implements OnInit {
   idAluno: number;
   quantDisciplina: number = 0;
 
-  constructor(private toastController: ToastController, private navController: NavController, private professorService: ProfessorService, private alunoService: AlunoService, private disciplinaService: DisciplinaService, private professorDisciplinaService: ProfessorDisciplinaService, private alertController: AlertController, private activatedRoute: ActivatedRoute, private loadingController: LoadingController) { 
+  constructor(private toastController: ToastController, private navController: NavController, private professorService: ProfessorService, private alunoService: AlunoService, private disciplinaService: DisciplinaService, private professorDisciplinaService: ProfessorDisciplinaService, private alertController: AlertController, private activatedRoute: ActivatedRoute, private loadingController: LoadingController) {
     this.professores = [];
     this.professoresFiltrados = [];
     this.idAluno = this.activatedRoute.snapshot.params['idAluno'];
@@ -37,24 +37,24 @@ export class PesquisarPage implements OnInit {
       const quantAlunos = params['quantAlunos'];
       const raioDistancia = params['raioDistancia'];
       const idDisciplina = params['idDisciplina'];
-  
+
       // Faça o que for necessário com os parâmetros recuperados
       console.log('Quantidade de alunos:', quantAlunos);
       console.log('Raio de distância:', raioDistancia);
       console.log('ID da disciplina:', idDisciplina);
-  
+
       // Chame a função para carregar a lista com base nos parâmetros
       this.filtrarProfessores(quantAlunos, raioDistancia, idDisciplina);
     });
   }
 
-  async ionViewWillEnter(){
+  async ionViewWillEnter() {
     this.carregarlista();
   }
 
-  async carregarlista(){
-    await this.professorService.listar().then((json)=>{
-      this.professores = <Professor[]> (json);
+  async carregarlista() {
+    await this.professorService.listar().then((json) => {
+      this.professores = <Professor[]>(json);
     });
     this.pesquisarProfessores();
   }
@@ -69,7 +69,7 @@ export class PesquisarPage implements OnInit {
           professor.nome.toLowerCase().includes(termoFiltro) ||
           professor.uf.toLowerCase().includes(termoFiltro) ||
           professor.cidade.toLowerCase().includes(termoFiltro) ||
-          professor.numMaxAlunos.toString().includes(termoFiltro) 
+          professor.numMaxAlunos.toString().includes(termoFiltro)
         );
       });
     }
@@ -77,49 +77,53 @@ export class PesquisarPage implements OnInit {
     this.ngOnInit();
   }
 
-  filtrarProfessores(quantAlunos: number, raioDistancia: number, idDisciplina: number){
+  async filtrarProfessores(quantAlunos: number, raioDistancia: number, idDisciplina: number) {
     console.log('Filtrando professores...');
     console.log('Quantidade de alunos:', quantAlunos);
     console.log('Raio de distância:', raioDistancia);
     console.log('ID da disciplina:', idDisciplina);
-  
-    if(quantAlunos >= 1){
-      this.professoresFiltrados = this.professores.filter(professor => {
-       // this.carregarDisciplinasProfessor(professor.idProfessor, idDisciplina);
-        console.log(this.quantDisciplina);
-        return professor.numMaxAlunos >= quantAlunos;
-      });
-    } 
-    
-    console.log('Professores filtrados:', this.professoresFiltrados);
-  } 
 
-  
+    const resultados = await Promise.all(
+      this.professores.map(async professor => {
+        const temDisciplina = await this.carregarDisciplinasProfessor(professor.idProfessor, idDisciplina);
+        return (professor.numMaxAlunos >= quantAlunos && (!idDisciplina || temDisciplina)) ? professor : null;
+      })
+    );
+
+    this.professoresFiltrados = resultados.filter(p => p !== null);
+
+    console.log('Professores filtrados:', this.professoresFiltrados);
+  }
+
+
   async carregarDisciplinasProfessor(idProfessor: number, idDisciplina: number) {
     try {
       const json = await this.professorDisciplinaService.listarPorId(idProfessor, idDisciplina);
       let professorDisciplina: ProfessorDisciplina = json as ProfessorDisciplina;
-      if(professorDisciplina.idDisciplina >= 1){
-        this.quantDisciplina = 1;
+      if (professorDisciplina) {
+        return true;
+      } else {
+        return false;
       }
     } catch (error) {
       console.error('Erro ao carregar disciplinas do professor:', error);
+      return false;
     }
   }
-  
 
-  exibirLoader(){
-    this.loadingController.create({ 
+
+  exibirLoader() {
+    this.loadingController.create({
       message: 'Carregando...'
-    }).then((res)=>{
+    }).then((res) => {
       res.present();
     })
   }
 
-  fecharLoader(){
-    setTimeout(()=>{
-      this.loadingController.dismiss().then(()=>{
-      }).catch((erro)=>{
+  fecharLoader() {
+    setTimeout(() => {
+      this.loadingController.dismiss().then(() => {
+      }).catch((erro) => {
         console.log('Erro: ', erro)
       });
     }, 500);
